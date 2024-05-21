@@ -58,6 +58,21 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 
+function showSlide(index) {
+  if (index >= totalSlides) {
+    slideIndex = 0;
+  } else if (index < 0) {
+    slideIndex = totalSlides - 1;
+  } else {
+    slideIndex = index;
+  }
+
+  slides.forEach((slide, i) => {
+    slide.style.display = (i === slideIndex) ? 'block' : 'none';
+  });
+}
+
+// Event listeners for buttons
 document.getElementById('prevSlide').addEventListener('click', () => {
   showSlide(slideIndex - 1);
 });
@@ -66,8 +81,5 @@ document.getElementById('nextSlide').addEventListener('click', () => {
   showSlide(slideIndex + 1);
 });
 
-function showSlide(index) {
-  slides[slideIndex].style.display = 'none';
-  slideIndex = (index + totalSlides) % totalSlides;
-  slides[slideIndex].style.display = 'block';
-}
+// Initialize the slider to show the first slide
+showSlide(slideIndex);

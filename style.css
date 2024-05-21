@@ -102,6 +102,7 @@ section {
 }
 body {
   line-height: 1;
+  margin:5px;
 }
 ol,
 ul {
@@ -128,7 +129,7 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 50px;
-  height: 80px;
+  height: 100px;
   background-color: #070f2b;
   color: #fff;
 }
@@ -138,19 +139,21 @@ h3 {
 }
 
 nav {
-  text-align: center;
   font-size: 20px;
+  text-align: center;
   background-color: #424ef5;
 }
 
 nav .container-nav,
 .flex-container {
   display: flex;
+  height:25px;
   margin-right: 10px;
 }
 
 .container-nav .menu {
   margin-right: 10px;
+  text-align: center;
 }
 
 a {
@@ -189,7 +192,7 @@ footer {
   color: white;
   background-color: #42c8f5;
 }
-/* CSS */
+
 ul {
   counter-reset: item;
   list-style: none;
@@ -225,7 +228,7 @@ ul li::before {
 }
 
 #scrollToTopButton svg {
-  fill: #42c8f5; /* Ubah warna ikon  */
+  fill: #42c8f5; 
   width: 24px;
   height: 24px;
 }
@@ -234,24 +237,95 @@ ul li::before {
   display: block;
 }
 
+/* Slider Styles */
 .slider {
-  display: flex;
-  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
 }
 
 .slide {
-  min-width: 100%;
+  display: none;
 }
 
+@media (max-width: 600px) {
+  .slider {
+    max-width: 100%;
+  }
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Initial slide visible */
+.slider .slide:first-child {
+  display: block;
+}
+
+/* Slider Navigation */
 .slider-nav {
   text-align: center;
+  margin-top: 10px;
 }
 
 .slider-nav button {
-  margin: 10px;
-  padding: 5px 10px;
   background-color: #42c8f5;
   border: none;
   color: white;
+  padding: 10px 20px;
   cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#blog {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  margin: 20px;
+}
+
+.blog-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 30%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.blog-item img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-bottom: 20px;
+}
+
+.blog-item p {
+  flex-grow: 1;
+}
+
+.blog-item button {
+  background-color: #42c8f5;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.blog-item button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-item button:hover {
+  background-color: #0056b3;
 }
